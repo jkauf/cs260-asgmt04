@@ -1,0 +1,396 @@
+CS260 - Assignment 4 - Premium - Michael Trigoboff
+
+Database Of Great Computer Scientists
+
+>>> insert Ralston, Anthony
+
+>>> insert Liang, Li
+
+>>> insert Jones, Doug
+
+>>> insert Goble, Colin
+
+>>> insert Knuth, Donald
+
+>>> insert Kay, Alan
+
+>>> insert Von Neumann, John
+
+>>> insert Trigoboff, Michael
+
+>>> insert Turing, Alan
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Ralston, Anthony                   0
+Liang, Li                          1
+Von Neumann, John                  2
+Jones, Doug                        3
+Trigoboff, Michael                 5
+Goble, Colin            leaf       7
+Knuth, Donald                      8
+Turing, Alan            leaf      12
+Kay, Alan               leaf      17
+(items printed)                      (9)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Ralston, Anthony                   0
+Liang, Li                          1
+Jones, Doug                        3
+Goble, Colin            leaf       7
+Knuth, Donald                      8
+Kay, Alan               leaf      17
+Von Neumann, John                  2
+Trigoboff, Michael                 5
+Turing, Alan            leaf      12
+(items printed)                      (9)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Jones, Doug                        3
+Kay, Alan               leaf      17
+Knuth, Donald                      8
+Liang, Li                          1
+Ralston, Anthony                   0
+Trigoboff, Michael                 5
+Turing, Alan            leaf      12
+Von Neumann, John                  2
+(items printed)                      (9)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Kay, Alan               leaf      17
+Knuth, Donald                      8
+Jones, Doug                        3
+Liang, Li                          1
+Turing, Alan            leaf      12
+Trigoboff, Michael                 5
+Von Neumann, John                  2
+Ralston, Anthony                   0
+(items printed)                      (9)
+
+>>> retrieve Trigoboff, Michael
+
+Trigoboff, Michael      
+
+>>> retrieve Kaye, Danny
+
+not found
+
+>>> PREMIUM <<<
+
+>>> remove Ralston, Anthony
+
+Ralston, Anthony removed
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Von Neumann, John                  2
+Jones, Doug                        3
+Turing, Alan            leaf       5
+Goble, Colin            leaf       7
+Knuth, Donald                      8
+Kay, Alan               leaf      17
+(items printed)                      (8)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Jones, Doug                        3
+Goble, Colin            leaf       7
+Knuth, Donald                      8
+Kay, Alan               leaf      17
+Von Neumann, John                  2
+Turing, Alan            leaf       5
+(items printed)                      (8)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Jones, Doug                        3
+Kay, Alan               leaf      17
+Knuth, Donald                      8
+Liang, Li                          1
+Trigoboff, Michael                 0
+Turing, Alan            leaf       5
+Von Neumann, John                  2
+(items printed)                      (8)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Kay, Alan               leaf      17
+Knuth, Donald                      8
+Jones, Doug                        3
+Liang, Li                          1
+Turing, Alan            leaf       5
+Von Neumann, John                  2
+Trigoboff, Michael                 0
+(items printed)                      (8)
+
+>>> remove Jones, Doug
+
+Jones, Doug removed
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Von Neumann, John                  2
+Kay, Alan                          3
+Turing, Alan            leaf       5
+Goble, Colin            leaf       7
+Knuth, Donald           leaf       8
+(items printed)                      (7)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Kay, Alan                          3
+Goble, Colin            leaf       7
+Knuth, Donald           leaf       8
+Von Neumann, John                  2
+Turing, Alan            leaf       5
+(items printed)                      (7)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Kay, Alan                          3
+Knuth, Donald           leaf       8
+Liang, Li                          1
+Trigoboff, Michael                 0
+Turing, Alan            leaf       5
+Von Neumann, John                  2
+(items printed)                      (7)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald           leaf       8
+Kay, Alan                          3
+Liang, Li                          1
+Turing, Alan            leaf       5
+Von Neumann, John                  2
+Trigoboff, Michael                 0
+(items printed)                      (7)
+
+>>> remove Kay, Alan
+
+Kay, Alan removed
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Von Neumann, John                  2
+Knuth, Donald                      3
+Turing, Alan            leaf       5
+Goble, Colin            leaf       7
+(items printed)                      (6)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Knuth, Donald                      3
+Goble, Colin            leaf       7
+Von Neumann, John                  2
+Turing, Alan            leaf       5
+(items printed)                      (6)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald                      3
+Liang, Li                          1
+Trigoboff, Michael                 0
+Turing, Alan            leaf       5
+Von Neumann, John                  2
+(items printed)                      (6)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald                      3
+Liang, Li                          1
+Turing, Alan            leaf       5
+Von Neumann, John                  2
+Trigoboff, Michael                 0
+(items printed)                      (6)
+
+>>> remove Kay, Alan
+
+Kay, Alan not found
+
+>>> remove Von Neumann, John
+
+Von Neumann, John removed
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Turing, Alan            leaf       2
+Knuth, Donald                      3
+Goble, Colin            leaf       7
+(items printed)                      (5)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Knuth, Donald                      3
+Goble, Colin            leaf       7
+Turing, Alan            leaf       2
+(items printed)                      (5)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald                      3
+Liang, Li                          1
+Trigoboff, Michael                 0
+Turing, Alan            leaf       2
+(items printed)                      (5)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald                      3
+Liang, Li                          1
+Turing, Alan            leaf       2
+Trigoboff, Michael                 0
+(items printed)                      (5)
+
+>>> remove Turing, Alan
+
+Turing, Alan removed
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Knuth, Donald                      3
+Goble, Colin            leaf       7
+(items printed)                      (4)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Knuth, Donald                      3
+Goble, Colin            leaf       7
+(items printed)                      (4)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald                      3
+Liang, Li                          1
+Trigoboff, Michael                 0
+(items printed)                      (4)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Goble, Colin            leaf       7
+Knuth, Donald                      3
+Liang, Li                          1
+Trigoboff, Michael                 0
+(items printed)                      (4)
+
+>>> remove Goble, Colin
+
+Goble, Colin removed
+
+>>> array order:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Knuth, Donald           leaf       3
+(items printed)                      (3)
+
+>>> preorder:
+
+name                    leaf?  index
+----                    -----  -----
+Trigoboff, Michael                 0
+Liang, Li                          1
+Knuth, Donald           leaf       3
+(items printed)                      (3)
+
+>>> inorder:
+
+name                    leaf?  index
+----                    -----  -----
+Knuth, Donald           leaf       3
+Liang, Li                          1
+Trigoboff, Michael                 0
+(items printed)                      (3)
+
+>>> postorder:
+
+name                    leaf?  index
+----                    -----  -----
+Knuth, Donald           leaf       3
+Liang, Li                          1
+Trigoboff, Michael                 0
+(items printed)                      (3)
+

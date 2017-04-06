@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/asgmt.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- template parameters -->
+<!-- InstanceParam name="asgmtVersion" type="text" value="4" -->
+<style type="text/css">
+<!--
+.code {
+	font-family: Consolas, "Courier New", Courier, monospace;
+	font-size: 14px;
+}
+.header {
+	font-family: Cambria, "Times New Roman", Roman, serif;
+	font-size: 20px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.title {
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: Cambria, "Times New Roman", Roman, serif;
+}
+.header1 {	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+-->
+</style>
+<title>CS260 Assignment&nbsp;4</title>
+</head>
+<body>
+<h1 class="title">CS260 Assignment 4</h1>
+<h2 class="header">Instructions</h2>
+<!-- InstanceBeginEditable name="description" -->
+<p>For your own amusement (and for your grade in this class), you have decided to keep a &ldquo;Database Of Great Computer Scientists.&rdquo; You will store this database in a <em>binary search tree</em>, implemented <em>as an array</em> according to the description in the textbook<span style="font-weight: bold"> </span>(look up &ldquo;Binary trees, array-based implementation&rdquo; in the  textbook index). In this scheme, the left child of the node at index<span class="code"> i </span>will be at index<span class="code"> 2&nbsp;*&nbsp;i&nbsp;+&nbsp;1</span>, and its right child will be at node<span class="code"> 2&nbsp;*&nbsp;i&nbsp;+&nbsp;2</span>.</p>
+<p>Note that while the textbook says this representation is for a <span style="font-style: italic">complete</span> binary tree, it can actually be used for a binary tree of <span style="font-style: italic">any </span>shape. The only problem is that if the tree is not complete, there will be space wasted in the array. But the wasted space is not a problem for this small application. </p>
+<p>Your array should start with a size of 5, and grow as needed. When it needs to grow, it should grow by doubling in size. It is not acceptable for your array to &ldquo;run out of room.&rdquo;</p>
+<p>For each computer scientist, you will store  their name as a standard C string (i.e. as <span class="code">char*</span>).</p>
+<p><span class="code">BST::insert()</span>, <span class="code">BST::retrieve</span>(), and <span class="code">BST::remove()</span> are all required to work in a tree-oriented manner, using the formulas to find left and right children. A linear search through the array is not acceptable and will cost significant points.</p>
+<p><!-- #BeginLibraryItem "/Library/regular vs. premium.lbi" --><!-- #BeginLibraryItem "/Library/regular vs. premium.lbi" --> <span style="font-style: italic">This assignment comes in two versions: <strong><!-- #BeginLibraryItem "/Library/regular.lbi" -->Regular<!-- #EndLibraryItem --></strong> (which is easier) and <strong><!-- #BeginLibraryItem "/Library/premium.lbi" -->Premium<!-- #EndLibraryItem --></strong> (which is more difficult). If you want to get an A in this course, you will need to do the Premium version. If, instead, you will be satisfied with a B, you can do the Regular version and save yourself some work. </span><!-- #EndLibraryItem --><!-- #EndLibraryItem --><em><!-- #BeginLibraryItem "/Library/array size rquirement (BST).lbi" --> The array should initially be <em>exactly</em> the size specified in the <span class="code">capacity</span> argument of the <span class="code">BST</span> constructor.<!-- #EndLibraryItem --></em></p>
+<hr />
+<h2 class="header">Regular Version </h2>
+<p>Implement all of the operations defined for the BST class <span style="font-style: italic">except for</span> the<span class="code"> remove </span>operation.</p>
+<p>Leave <span class="code">BST::PREMIUM_VERSION</span> set to <span class="code">false</span>.</p>
+<p>Your code needs to produce output that&rsquo;s identical to the contents of <strong>asgmt04.regular.correctOutput.txt</strong> (except for minor differences in whitespace).</p>
+<hr />
+<h2 class="header">Premium  Version</h2>
+<p>Do all of the work needed for the Regular version, and also implement the<span class="code"> remove </span>operation that is already defined in the BST class. You are required to do this by implementing the algorithm described in Carrano. In particular, when deleting a node with two children, <span style="font-style: italic">you are required to use the inorder successor</span>. The algorithm can also be implemented using the inorder predecessor, but you should not do this because then your output will then not be identical to mine and your grade will suffer accordingly. </p>
+<p>Hints:</p>
+<ul>
+  <li><span style="font-style: italic">draw pictures of the trees</span> <br />
+    There are a number of different possibilities you will have to handle, and there are different things you will have to do for each of these cases. Drawing pictures of the trees and of how they change will help you keep track of all of this. (It helped me!)</li>
+  <li><span style="font-style: italic">in this array-based implementation of the tree, each node has its own predefined location in the array <br />
+  </span>Therefore, you cannot just &ldquo;update links&rdquo; like you can with a pointer-based implementation. You will have to move things around in the array. Depending on how your code works, you may need to traverse subtrees <span style="font-style: italic">breadth first</span> to do this. &ldquo;Breadth first&rdquo; means that, starting from the top, each level is traversed from left to right before the next level is traversed. Remember that some of the slots in the array will be <span style="font-style: italic">empty</span>.</li>
+</ul>
+<p>Set <span class="code">BST::PREMIUM_VERSION</span> to <span class="code">true</span>.</p>
+<p>Your code needs to produce output that&rsquo;s identical to the contents of <strong>asgmt04.premium.correctOutput.txt</strong> (except for minor differences in whitespace).</p>
+<!-- InstanceEndEditable -->
+<h2 class="header">Code To Start With </h2>
+<p>The code for you to start with is in <span class="code"><!-- #BeginLibraryItem "/Library/as01 mlt cs260 asgmts directory.lbi" --> ~michael.trigoboff/cs260/asgmts<!-- #EndLibraryItem -->/asgmt04</span>. </p>
+<p>Add code to the definition and implementation files as needed. You can add public and private members, but <span style="font-style: italic">do not remove any of the public members that are already there</span>. Also, <span style="font-style: italic">make no changes </span>to <span class="code" style="font-weight: bold">asgmt0<strong>4</strong>.cpp</span>.</p>
+<p>There may be additional instructions in comments in the code files, which may contradict these instructions. In that case, do what the instructions in the code say you should do.</p>
+<h2 class="header">Required Submission File Structure</h2>
+<p>You are required to submit your work as a <a href="https://en.wikipedia.org/wiki/Tar_%28computing%29" target="_blank">Linux tarball</a>. No other file format is acceptable. Use<span class="code"><!-- #BeginLibraryItem "/Library/as01 mlt home directory.lbi" -->
+~michael.trigoboff<!-- #EndLibraryItem -->/bin/tarz</span> to create your tarball.</p>
+<p>Do not change the structure of your project directory in any way. Do not rename files, add new files, or delete files. I grade your code using a Bash script that depends on files being in predictable places. Nothing in this assignment requires files to be moved, renamed, deleted, etc.<br />
+</p>
+<p class="header">Strings</p>
+<p>For storing and printing strings, you should use <a href="http://en.wikipedia.org/wiki/CString" target="_blank">C strings</a>. Your code should<span class="code"> #include &lt;cstring&gt;</span> and use the functions defined in that header, such as:</p>
+<ul>
+  <li class="code">int strlen(char *str)<br />
+  // given a string pointer, returns the length of that string,<br />
+  // 
+  which does not include the terminating '\0' character</li>
+  <li class="code">void strcpy(char *dst, char *src)<br />
+    // copies the characters in src to dst,<br />
+    //
+  including the terminating '\0' character</li>
+</ul>
+<h2 class="header">Printed Output</h2>
+<p>Your code&rsquo;s printed output needs to be identical to the contents of the &ldquo;correct output&rdquo; file(s)  provided as part of this assignment. &ldquo;Identical&rdquo; means the Linux utility <span class = "code">diff</span> will find no differences between your code&rsquo;s output and the provided file, when called with flags: <span class="code">-w -B</span>. This means that the sequence of non-whitespace characters in your output has to be identical, but that differences in whitespace will be ignored.</p>
+<p>You are still required to produce output that lines up with itself properly. Columns may need to line up, numbers may need to be right-justified,  etc. You should look at the &ldquo;correct output&rdquo; file(s) to see what you need to do.</p>
+<h2 class="header">Memory Leaks</h2>
+<p>Your code is required to run without memory leaks. You should use <span class="code"><!-- #BeginLibraryItem "/Library/as01 mlt home directory.lbi" --> ~michael.trigoboff<!-- #EndLibraryItem -->/bin/mchk</span> to check this.</p>
+<h2 class="header">Initialization Lists </h2>
+<p>The constructors in your code should use an <a href="http://www.learncpp.com/cpp-tutorial/101-constructor-initialization-lists/" target="_blank">initialization list</a> item for <em>each</em> data member defined by the class. Points will be deducted where this is not done.</p>
+<p>Here is a class definition:</p>
+<blockquote>
+<pre class="code">
+class SomeClass
+{
+    ...
+
+private:
+    int     dataMember1;
+    int     dataMember2;
+}</pre></blockquote>
+<p>Here is a constructor for this class that does not use an initialization list:</p>
+<blockquote>
+<pre class="code">
+SomeClass::SomeClass(int dataMember1, int dataMember2)
+{
+    this->dataMember1 = dataMember1;
+    this->dataMember2 = dataMember2;
+}</pre></blockquote>
+<p>And here is one that does use an initialization list: </p>
+<blockquote>
+<pre class="code">
+SomeClass::SomeClass(int dataMember1, int dataMember2) :
+    dataMember1{dataMember1},
+    dataMember2{dataMember2}
+{
+}</pre></blockquote>
+<p>An initialization list consists of comma-separated items between the <strong class="code">:</strong> and the <strong class="code">{</strong> that begins the body of the function. Each of these items is of the form:</p>
+<blockquote>
+<pre class="code">
+dataMemberName{value}</pre></blockquote>
+<p>Each item sets the named data member to the value in the parentheses. In the SomeClass constructor above, each of the two initialization list items sets its data member to the constructor argument named inside the parentheses. This is weird-looking syntax, but it is standard usage in the culture of C++. </p>
+<h2 class="header">Grading Your Code</h2>
+<p>Your code needs to compile without errors or warnings and run correctly. Code that does not compile will receive zero points. Code that crashes will receive zero points.</p>
+<p>I use Bash scripts to grade your code. Because of this, it is very important that you not make any changes to file names or the folder structure in your project. Your project should have all the same names in all the same places as the starter project you copied from <span class="code"><!-- #BeginLibraryItem "/Library/as01 mlt cs260 asgmts directory.lbi" -->
+ ~michael.trigoboff/cs260/asgmts<!-- #EndLibraryItem -->/asgmt04</span>. If you change any of this, my scripts will crash. Your work will not be graded, you will have to resubmit a corrected version of your work, and you will lose points.</p>
+<p>My scripts produce a log file containing your code, compiler warnings and errors (if any), your code's output, and some statistics that are useful to me. I then personally go through that log file to produce your grade. In other words, the script doesn't decide your grade, it just makes it more convenient for me to decide your grade.</p>
+<h2 class="header">To Submit This Assignment</h2>
+<p>Remove anything like calls to <span class="code">cin.get()</span>, that would stop your code.</p>
+<p>Then &ldquo;clean&rdquo; your project by doing the following:</p>
+<blockquote>
+  <p class="code"> make x</p>
+</blockquote>
+<p>After cleaning your project, compress it into a tarball, <span class="code">asgmt04.tar.gz</span> using <span class="code"><!-- #BeginLibraryItem "/Library/as01 mlt home directory.lbi" --> ~michael.trigoboff<!-- #EndLibraryItem -->/bin/tarz</span>. Submit the tarball containing your cleaned project to Desire2Learn.</p>
+<p>Please be sure the source file prints your name, assignment description and number, as requested.</p>
+<p>You may upload as many versions as you wish prior to the due date. I will only see and grade the last one. You won't be able to upload assignments after the due date.</p>
+</body>
+<!-- InstanceEnd --></html>
