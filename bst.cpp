@@ -28,29 +28,6 @@ void BST::insert(const GCS& gcs)
 	int idx = 0;
 	bool inserted = false;
 
-	/*
-	//array full, grow it
-	if (count == capacity)
-	{
-		capacity = 2 * capacity;
-		Item* newArr = new Item[capacity];
-		for(int i = 0; i < count; i++)
-		{
-			if (items[i].gcs.getName())
-			{
-				newArr[i].gcs = items[i].gcs;
-				//delete items[i].gcs.getName();
-			}
-			items[i].gcs.setName("");
-		}
-		
-		//capacity = 2 * capacity;
-		delete [] items;
-		items = newArr;
-
-	}
-	*/
-
 	//array empty, insert GCS into root node
 	if (items[idx].gcs.getName() == nullptr)
 	{
@@ -61,9 +38,6 @@ void BST::insert(const GCS& gcs)
 	
 	while(!inserted)
 	{
-		//grow array if necessary
-		//if(idx > capacity)
-			//growArray();
 
 		//left child insert
 		if (gcs < items[idx].gcs)
@@ -168,14 +142,12 @@ bool BST::remove(const char* key)
 	if(getLeftChild(idx) && getRightChild(idx))
 	{
 		int remove = findInorderSuccessor((2* idx + 2), key);
-		//cout << "is this right?" << items[remove].gcs << endl;
 		items[idx].gcs.setName(items[remove].gcs.getName());
 		count--;
 		if(hasChildren(remove))
 			removeHelper(remove);
 		else if (hasLeftChild(idx) && hasRightChild(idx))
 		{
-			//BST::remove(items[remove].gcs.getName());
 			remove = findInorderSuccessor(remove, key);
 			items[remove].gcs.setName("");
 		}
@@ -202,14 +174,6 @@ void BST::displayArrayOrder(ostream& out) const
 		if (items[i].gcs.getName())
 		{
 			printItem(i, out);
-
-			//old print
-			//out << left << setw(24) <<  items[i].gcs;
-			//if (isLeaf(i))
-				//out << setw(5) << left << "leaf";
-			//else
-				//out << setw(5) << "";
-			//out <<  "  " << setw(5) << right << i << endl;
 		}
 	}
 
@@ -400,9 +364,6 @@ int BST::findInorderSuccessor(int idx, const char* key)
 
 int BST::removeHelper(int idx)
 {
-	//if ((hasLeftChild(idx) || hasRightChild(idx) == true) 
-	//&& (hasLeftChild(idx) && hasRightChild(idx) == false))
-	//{
 		if(hasLeftChild(idx))
 		{
 			items[idx].gcs.setName(items[2*idx+1].gcs.getName());
@@ -414,7 +375,6 @@ int BST::removeHelper(int idx)
 			items[idx].gcs.setName(items[2*idx+2].gcs.getName());
 			items[2 * idx + 2].gcs.setName("");
 		}
-	//}
 		return 0;
 }
 
