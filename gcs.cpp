@@ -51,7 +51,6 @@ bool operator<(const GCS& gcs1, const GCS& gcs2)
 bool operator==(const GCS& gcs1, const GCS& gcs2)
 {
 	return (strcmp(gcs1.name,gcs2.name) == 0);
-	//return false;
 }
 
 ostream& operator<<(ostream& out, const GCS& gcs)
